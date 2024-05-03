@@ -56,19 +56,19 @@ const App: React.FC = () => {
         <div className="flex grow gap-6 px-5">
           <nav>
             <p className="text-2xl pt-7 pr-1 pb-5 pl-0">Módulos:</p>
-            <ul className="gap-6 flex flex-col">
+            <ul className="gap-4 flex flex-col">
               {modules.map((module) => (
                 <li key={module.id} className="w-56 cursor-pointer">
-                  <a
+                  <button
                     onClick={() => selectModules(module)}
-                    className={`rounded py-2 px-4 flex ${
+                    className={`w-full rounded py-2 px-4 flex ${
                       module.id === modulesActive.id
                         ? "bg-lime-600 text-white"
                         : "bg-lime-400 text-zinc-600"
                     }`}
                   >
                     <strong>{module.Descricao}</strong>
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -82,7 +82,7 @@ const App: React.FC = () => {
               {subModules.map((submodule) => (
                 <li
                   key={submodule.id}
-                  className="flex justify-center items-center text-center shadow bg-gradient-to-tr from-green-500 to-white w-52 p-8 rounded"
+                  className="flex justify-center items-center text-center font-bold text-xl shadow bg-gradient-to-tr from-green-500 to-white w-52 p-8 rounded"
                 >
                   {submodule.Descricao}
                 </li>
