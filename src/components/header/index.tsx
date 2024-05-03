@@ -13,7 +13,7 @@ const Header = () => {
           <img
             src={facebook}
             alt="Perfil ITWorks no Facebook"
-            className="cursor-pointer w-9 sm:w-12"
+            className="cursor-pointer w-9 sm:w-12 duration-200 hover:scale-110"
           />
         </a>
         <a
@@ -23,14 +23,14 @@ const Header = () => {
           <img
             src={instagram}
             alt="Perfil ITWorks no Instagram"
-            className="cursor-pointer w-9 sm:w-12"
+            className="cursor-pointer w-9 sm:w-12 duration-200 hover:scale-110"
           />
         </a>
         <a href="https://www.youtube.com/@itworksoficial" target="_blank">
           <img
             src={youtube}
             alt="Canal ITWorks no Youtube"
-            className="cursor-pointer w-9 sm:w-12"
+            className="cursor-pointer w-9 sm:w-12 duration-200 hover:scale-110"
           />
         </a>
       </div>

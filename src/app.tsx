@@ -54,27 +54,48 @@ const App: React.FC = () => {
         </div>
       ) : (
         <div className="flex flex-col sm:flex-row grow gap-6 px-5 pb-4 sm:pb-0">
-          <nav>
+          <nav
+            className={
+              modulesActive.id
+                ? "transition-opacity duration-500 opacity-100"
+                : "opacity-0"
+            }
+          >
             <p className="text-2xl pt-7 pr-1 pb-5 pl-0">Módulos:</p>
-            <ul className="gap-2 sm:gap-4 flex flex-wrap sm:flex-col">
+            <ul className="gap-2 sm:gap-3 ml-1 flex flex-wrap sm:flex-col">
               {modules.map((module) => (
-                <li key={module.id} className="sm:w-56 cursor-pointer">
-                  <button
-                    onClick={() => selectModules(module)}
-                    className={`w-full rounded py-2 px-4 flex ${
-                      module.id === modulesActive.id
-                        ? "bg-lime-600 text-white"
-                        : "bg-lime-400 text-zinc-600"
-                    }`}
-                  >
-                    <strong>{module.Descricao}</strong>
-                  </button>
+                <li key={module.id} className="sm:w-56 flex">
+                  <div className="z-10 w-full">
+                    <button
+                      onClick={() => selectModules(module)}
+                      className={`w-full rounded py-3 px-4 flex ${
+                        module.id === modulesActive.id
+                          ? "bg-lime-600 text-white cursor-auto"
+                          : "bg-lime-400 text-zinc-600 hover:bg-lime-500 relative -top-1 -left-1 py-2.5 px-5 transition-all before:absolute before:top-1 before:left-1 before:-z-[1] before:rounded before:h-full before:w-full before:border-2 before:border-lime-400 before:transition-all before:content-[''] hover:top-0 hover:left-0 before:hover:top-0 before:hover:left-0"
+                      }`}
+                    >
+                      <strong>{module.Descricao}</strong>
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
           </nav>
-          <main className="grow">
-            <h2 className="text-center p-6 text-3xl sm:text-4xl font-medium mb-0 sm:mb-4 text-zinc-600">
+          <main
+            className={`grow ${
+              modulesActive.id
+                ? "transition-opacity duration-500 opacity-100"
+                : "opacity-0"
+            }`}
+          >
+            <h2
+              className={`text-center p-6 text-3xl sm:text-4xl font-medium mb-0 sm:mb-4 text-zinc-600
+            transition-transform duration-1000 ${
+              modulesActive.id
+                ? "transform translate-x-0"
+                : "transform translate-x-full"
+            }`}
+            >
               Submódulos de{" "}
               <span className="text-lime-600">{modulesActive.Descricao}</span>
             </h2>
@@ -82,7 +103,7 @@ const App: React.FC = () => {
               {subModules.map((submodule) => (
                 <li
                   key={submodule.id}
-                  className="flex justify-center items-center text-center font-bold text-lg sm:text-xl shadow bg-gradient-to-tr from-green-500 to-white w-52 p-8 rounded"
+                  className="flex justify-center items-center text-center font-bold text-lg sm:text-xl shadow hover:shadow-lg bg-gradient-to-tr from-green-500 to-white w-52 p-8 rounded"
                 >
                   {submodule.Descricao}
                 </li>
