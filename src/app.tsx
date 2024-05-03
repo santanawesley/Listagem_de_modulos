@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import getModules from "./api/api";
 import { Module, SubModule } from "../types/apiTypes";
+import { Header } from "./components";
 
 interface ModulesActive {
   Descricao: string;
@@ -39,11 +40,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="p-5 bg-slate-100 min-h-screen flex flex-col text-zinc-600">
-      <header className="shrink-0">
-        <h1 className="text-center">Lista de Módulos</h1>
-      </header>
-      <div className="flex grow gap-6">
+    <div className="bg-slate-100 min-h-screen flex flex-col text-zinc-600">
+      <Header />
+      <div className="flex grow gap-6 px-5">
         <nav>
           <p className="text-2xl pt-7 pr-1 pb-5 pl-0">Módulos:</p>
           <ul className="gap-6 flex flex-col">
