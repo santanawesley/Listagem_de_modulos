@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import getModules from "./api/api";
 import { Module, SubModule } from "../types/apiTypes";
-import { Header } from "./components";
+import { Footer, Header } from "./components";
 
 interface ModulesActive {
   Descricao: string;
@@ -79,9 +79,7 @@ const App: React.FC = () => {
           </ul>
         </main>
       </div>
-      <footer className="shrink-0">
-        <p>Footer</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
