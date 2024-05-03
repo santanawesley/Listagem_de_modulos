@@ -46,19 +46,19 @@ const App: React.FC = () => {
       <Header />
       {errorDataModules ? (
         <div className="flex grow justify-center">
-          <p className="pt-24 font-bold text-center text-xl">
+          <p className="pt-24 px-3 font-bold text-center text-sm sm:text-xl">
             Não foi possível acessar as informações de Módulos e Submódulos no
             momento. <br />
             Tente mais tarde ou entre em contato conosco.
           </p>
         </div>
       ) : (
-        <div className="flex grow gap-6 px-5">
+        <div className="flex flex-col sm:flex-row grow gap-6 px-5 pb-4 sm:pb-0">
           <nav>
             <p className="text-2xl pt-7 pr-1 pb-5 pl-0">Módulos:</p>
-            <ul className="gap-4 flex flex-col">
+            <ul className="gap-2 sm:gap-4 flex flex-wrap sm:flex-col">
               {modules.map((module) => (
-                <li key={module.id} className="w-56 cursor-pointer">
+                <li key={module.id} className="sm:w-56 cursor-pointer">
                   <button
                     onClick={() => selectModules(module)}
                     className={`w-full rounded py-2 px-4 flex ${
@@ -74,15 +74,15 @@ const App: React.FC = () => {
             </ul>
           </nav>
           <main className="grow">
-            <h2 className="text-center p-6 text-4xl font-medium mb-4 text-zinc-600">
+            <h2 className="text-center p-6 text-3xl sm:text-4xl font-medium mb-0 sm:mb-4 text-zinc-600">
               Submódulos de{" "}
               <span className="text-lime-600">{modulesActive.Descricao}</span>
             </h2>
-            <ul className="flex flex-wrap gap-3 gap-y-9 justify-center">
+            <ul className="flex flex-wrap gap-3 gap-y-4 sm:gap-y-9 justify-center">
               {subModules.map((submodule) => (
                 <li
                   key={submodule.id}
-                  className="flex justify-center items-center text-center font-bold text-xl shadow bg-gradient-to-tr from-green-500 to-white w-52 p-8 rounded"
+                  className="flex justify-center items-center text-center font-bold text-lg sm:text-xl shadow bg-gradient-to-tr from-green-500 to-white w-52 p-8 rounded"
                 >
                   {submodule.Descricao}
                 </li>
